@@ -1,14 +1,4 @@
-# react-admin
-react-admin system solution
-
-### 最下方增加版本更新日志😁
-
-### 前言
-> 网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub
-  启动和打包的时间都稍长，请耐心等待两分钟
-
-- [GitHub地址](https://github.com/yezihaohao/react-admin)
-- [预览地址](http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index)(已增加响应式，可手机预览😄)
+# MieDIanGai
 
 ### 依赖模块
 <span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span>
@@ -27,69 +17,8 @@ react-admin system solution
 - [screenfull@3.2.0](https://github.com/sindresorhus/screenfull.js/)(<span style="color: rgb(243,121,52);">全屏插件</span>)
 - [photoswipe@4.1.2](https://github.com/dimsemenov/photoswipe)(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖jQuery，还是蛮好用👍</span>)
 - [animate.css@3.5.1](http://daneden.me/animate)(<span style="color: rgb(243,121,52);">css动画库</span>)
-- 其他小细节省略
-
-### 功能模块
-<span style="color: rgb(184,49,47);">备注：项目只引入了ant-design的部分组件，其他的组件antd官网有源码，可以直接复制到项目中使用，后续有时间补上全部组件。</span>
-<span style="color: rgb(184,49,47);">项目使用了antd的自定义主题功能-->黑色，若想替换其他颜色，具体操作请查看antd官网</span>
-<!--more-->
-
-- 首页
-    - 完整布局
-    - 换肤(全局功能，暂时只实现了顶部导航的换肤，后续加上其他模块)
-- 导航菜单
-    - 顶部导航(菜单伸缩，全屏功能)
-    - 左边菜单(增加滚动条以及适配路由的active操作)
-- UI模块
-    - 按钮(antd组件)
-    - 图标(antd组件并增加彩色表情符)
-    - 加载中(antd组件并增加顶部加载条)
-    - 通知提醒框(antd组件)
-    - 标签页(antd组件)
-    - 轮播图(ant动效组件)
-    - 富文本
-    - 拖拽
-    - 画廊
-- 动画
-    - 基础动画(animate.css所有动画)
-    - 动画案例
-- 表格
-    - 基础表格(antd组件)
-    - 高级表格(antd组件)
-    - 异步表格(数据来自掘金酱的接口)
-- 表单
-    - 基础表单(antd组件)
-- 图表
-    - echarts图表
-    - recharts图表
-- 页面
-    - 登录页面(包括GitHub第三方登录)
-    - 404页面
-
-### 功能截图
-#### 首页
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.gif)
-#### 按钮图标等
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.gif)
-#### 轮播图
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.gif)
-#### 富文本
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.gif)
-#### 拖拽
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.gif)
-#### 画廊
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.gif)
-#### 动画
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.gif)
-#### 表格
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.gif)
-#### 表单
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.gif)
-#### 图表
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.gif)
-#### 页面
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.gif)
-
+- 其他小细节省略  
+ 
 ### 代码目录
 ```js
 +-- build/                                  ---打包的文件目录
@@ -102,21 +31,8 @@ react-admin system solution
 +-- src/                                    ---核心代码目录
 |   +-- axios                               ---http请求存放目录
 |   |    --- index.js
-|   +-- components                          ---各式各样的组件存放目录
-|   |    +-- animation                      ---动画组件
-|   |    |    --- ...   
-|   |    +-- charts                         ---图表组件
-|   |    |    --- ...   
-|   |    +-- dashboard                      ---首页组件
-|   |    |    --- ...   
-|   |    +-- forms                          ---表单组件
-|   |    |    --- ...   
-|   |    +-- pages                          ---页面组件
-|   |    |    --- ...   
-|   |    +-- tables                         ---表格组件
-|   |    |    --- ...   
-|   |    +-- ui                             ---ui组件
-|   |    |    --- ...   
+|   +-- components      
+                    ---各式各样的组件存放目录
 |   |    --- BreadcrumbCustom.jsx           ---面包屑组件
 |   |    --- HeaderCustom.jsx               ---顶部导航组件
 |   |    --- Page.jsx                       ---页面容器
@@ -185,11 +101,3 @@ npm run build
 - 开发环境增加react-hot-loader-保持状态刷新组件(译：实时调整组件),可参考以下相关项目
     - [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
-### 结尾
-该项目会不定时更新，后续时间会添加更多的模块
-
-欢迎和感谢大家PR~~👏👏
-
-若有问题，可加QQ群264591039与我交流
-
-如果对你有帮助，给个star哟~~❤️❤️❤️❤️
