@@ -76,7 +76,7 @@ class SiderCustom extends Component {
                     </SubMenu>
                     <SubMenu
                         key="/app/demo"
-                        title={<span><Icon type="copy" /><span className="nav-text">Demo</span></span>}
+                        title={<span><Icon type="mobile" /><span className="nav-text">Demo</span></span>}
                     >
                         <Menu.Item key="/app/demo/search"><Link to={'/app/table/basicTable'}>查询页</Link></Menu.Item>
                     </SubMenu>
