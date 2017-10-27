@@ -22,7 +22,7 @@ class SiderCustom extends Component {
     setMenuOpen = props => {
         const {path} = props;
         this.setState({
-            openKey: path.substr(0, path.lastIndexOf('/')),
+            openKey: [path.split('/').slice(0,3).join('/'),path.split('/').slice(0,4).join('/')],
             selectedKey: path
         });
     };
@@ -35,18 +35,6 @@ class SiderCustom extends Component {
         const { popoverHide } = this.props;     // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
         popoverHide && popoverHide();
     }
-    openMenu = v => {
-        console.log(v);
-        this.setState({
-            openKey: v[v.length - 1],
-            selectedKey:v[v.length - 1]
-        })
-    };
-    selectMenu = (({item,key,selectedKeys})=>{
-        console.log(item)
-        console.log(key)
-        console.log(selectedKeys)
-    })
     render() {
         return (
             <Sider
@@ -59,12 +47,10 @@ class SiderCustom extends Component {
                 <Menu
                     onClick={this.handleClick}//点击具体菜单触发的事件
                     theme="dark"
+                    defaultSelectedKeys={['/app/config/mechanism/user']}
+                    defaultOpenKeys={['/app/config','/app/config/mechanism']}
                     inlineCollapsed={this.state.collapsed} //inline 时菜单是否收起状态
                     mode="inline"
-                    openKeys={[this.state.openKey]} //当前展开的 SubMenu 菜单项 key 数组
-                    selectedKeys={[this.state.selectedKey]} //当前选中的菜单项 key 数组
-                    onOpenChange={this.openMenu} //SubMenu 展开/关闭的回调
-                    onSelect={this.selectMenu}
                 >
                     <Menu.Item key="/app/dashboard/index">
                         <Link to={'/app/dashboard/index'}><Icon type="mobile" /><span className="nav-text">首页</span></Link>
@@ -87,6 +73,12 @@ class SiderCustom extends Component {
                         <Menu.Item key="/app/table/basicTable"><Link to={'/app/table/basicTable'}>首页</Link></Menu.Item>
                         <Menu.Item key="/app/table/advancedTable"><Link to={'/app/table/advancedTable'}>进度总览V_0.0.4</Link></Menu.Item>
                         <Menu.Item key="/app/table/asynchronousTable"><Link to={'/app/table/asynchronousTable'}>进度总览V_0.0.7</Link></Menu.Item>
+                    </SubMenu>
+                    <SubMenu
+                        key="/app/demo"
+                        title={<span><Icon type="copy" /><span className="nav-text">Demo</span></span>}
+                    >
+                        <Menu.Item key="/app/demo/search"><Link to={'/app/table/basicTable'}>查询页</Link></Menu.Item>
                     </SubMenu>
                 </Menu>
                 <style>

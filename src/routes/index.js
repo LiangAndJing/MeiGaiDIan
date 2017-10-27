@@ -10,6 +10,7 @@ import AdvancedTable from '../components/tables/AdvancedTables';
 import AsynchronousTable from '../components/tables/AsynchronousTable';
 import Dashboard from '../components/dashboard/Dashboard';
 import UserManagement from '../components/config/UserManagement';
+import SearchDemo from '../components/demo/SearchDemo';
 
 export default class CRouter extends Component {
     requireAuth = (permission, component) => {
@@ -33,6 +34,9 @@ export default class CRouter extends Component {
                             <Route path={'mechanism'}>
                                 <Route path={'user'} component={UserManagement} />
                             </Route>
+                        </Route>
+                        <Route path={'demo'}>
+                            <Route path={'search'} component={SearchDemo} />
                         </Route>
                         <Route path={'dashboard/index'} component={Dashboard} />
                     </Route>
