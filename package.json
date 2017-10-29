@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.2.1",
+    "initer": "^1.0.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "react-hot-loader": "^3.1.1"
@@ -112,5 +113,12 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "proxy": {
+    "/cte": {
+      "target": "http://47.93.159.225:8888",
+      "changeOrigin": true,
+      "headers":{"cookie": "JSESSIONID=3B5B71BEC20567DFEF55E09055131C9D; rememberMe=o7jrhqB7OMSANDJ7Hw2cejkY53IEyGurPwA1PBITGjrYjH3o3+hCrHyuekAgdMtsA5+fiwAQNtDe0S9KN5DpXX6xAHlSvSvda9FWTOR4w5SJ1s2v9PG9o4R/ufcchcwZgRdAzwR1gPMIJy9a/CdD61YKtfDtxICmz6/aEY8HYToWsYCP7ll1QQicBfscPA3CcLDC12BrFI+bSjv+LRKLzFSlD5oriY+wHZP/UDH41z03ZIU4qovBl51D4xT5kCNbO1oRV5nG56+1vWczzH2EYl7qkfPT/K2rQXku7anXXlrJkYQb4iIIKeBiIdOjVPqarkH0Qsq49WFEI7m+A9p+w6TD+uKEIujQbU0Idvw7t5nC9S0NzRlHv7B58v03Ykw0pL7W7qEsu4BT2Ya9sA/5C6tqTxZx6IYYcrfWTH1wgBW1YNXINH71iTyQ1gUcgsK4PpxN4pfAjeKgjvXi6L8YVIiNlP0TAzKy0GNuB+PQj/ROe7AZPo7cz0p8LY9WPLlVDBi6MTOC0DOmv7o1kg03B537BK2PCAMw3bl+A9hcYzJliXVYMj0y0uLNhnnqEUN8tq+htBRTvKTlEHCUkAiswuJwlP7ZoC/kBGcSYxCgzKPncowL+/sVBrMj84aNplMaB4RR4CC7eG8wiuMslYM7F784g9FByTfcNgo3EGRpn28cVQn6fY+o88T7NVxHybQBblcURhwDine9BwKIsokvoFuFamvseJJpLDI7TqLPB58CulVpuBNFyYBvekrHScWMFgpsciu68rxOjgOCSPUkN/7g1fdHdiPPdr1NPwNEV+4=; jeesite.session.id=dbbb4d11dfe04206bd8c7e117e58ff36"}
+    }
   }
 }

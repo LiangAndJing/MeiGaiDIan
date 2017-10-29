@@ -2,30 +2,35 @@
  * Created by xiexiaojing on 2017/4/13.
  */
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import { Layout, Menu, Icon } from 'antd';
 import { Link } from 'react-router';
+// import initer from 'initer'
+import { userActions } from './userActions'
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
+// const initer = require('initer');
+const mapStateToProps = state =>{
+    return {
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        ...userActions
+    }, dispatch)
+}
 class SiderCustom extends Component {
-    state = {
-        collapsed: false,
-        mode: 'inline',
-        selectedKey: '',
-    };
-    componentDidMount() {
-        this.setMenuOpen(this.props);
+    componentWillMount() {
+        // initer.resumeReducer('specialIssue');
+
+        this.props.sliderInit()
+
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        this.setMenuOpen(nextProps)
+    componentWillUnmount() {
+        // initer.resetReducer('specialIssue')
+        // initer.pauseReducer('specialIssue')
     }
-    setMenuOpen = props => {
-        const {path} = props;
-        this.setState({
-            openKey: [path.split('/').slice(0,3).join('/'),path.split('/').slice(0,4).join('/')],
-            selectedKey: path
-        });
-    };
     handleClick = (e) => {
         console.log('click ', e);
         this.setState({
@@ -36,6 +41,8 @@ class SiderCustom extends Component {
         popoverHide && popoverHide();
     }
     render() {
+        const {path, collapsed=false} = this.props;
+        let openKey = [path.split('/').slice(0, 3).join('/'), path.split('/').slice(0, 4).join('/')];
         return (
             <Sider
                 trigger={null}
@@ -47,9 +54,9 @@ class SiderCustom extends Component {
                 <Menu
                     onClick={this.handleClick}//点击具体菜单触发的事件
                     theme="dark"
-                    defaultSelectedKeys={['/app/config/mechanism/user']}
-                    defaultOpenKeys={['/app/config','/app/config/mechanism']}
-                    inlineCollapsed={this.state.collapsed} //inline 时菜单是否收起状态
+                    defaultSelectedKeys={[path]}//'/app/config/mechanism/user'
+                    defaultOpenKeys={openKey}//['/app/config','/app/config/mechanism']
+                    inlineCollapsed={collapsed} //inline 时菜单是否收起状态
                     mode="inline"
                 >
                     <Menu.Item key="/app/dashboard/index">
@@ -84,7 +91,7 @@ class SiderCustom extends Component {
                 <style>
                     {`
                     #nprogress .spinner{
-                        left: ${this.state.collapsed ? '70px' : '206px'};
+                        left: ${collapsed ? '70px' : '206px'};
                         right: 0 !important;
                     }
                     `}
@@ -94,4 +101,4 @@ class SiderCustom extends Component {
     }
 }
 
-export default SiderCustom;
+export default connect(mapStateToProps, mapDispatchToProps)(SiderCustom)
